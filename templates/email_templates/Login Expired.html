@@ -1,0 +1,27 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:550px;background:#fff;border-radius:20px;box-shadow:0 6px 28px #00336622;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <div style="background:linear-gradient(90deg,#003366 65%,#4f5b93 100%);color:#fff;padding:2.2em 2em 1.5em 2em;text-align:center;">
+        {% if logo_url %}
+        <img src="{{ logo_url }}" alt="Logo" style="max-width:80px;max-height:38px;margin-bottom:1em;">
+        {% endif %}
+        <div style="font-size:2em;font-weight:900;">{{ subject }}</div>
+        <div style="font-size:1.09em;opacity:0.85;margin-top:0.5em;">{{ greeting }}</div>
+      </div>
+      <div style="background:#f7fafd;color:#222;padding:2.5em 2em 1.5em 2em;">
+        <div style="font-size:1.14em;line-height:1.8;margin-bottom:2.2em;">
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="text-align:center;margin-bottom:2em;">
+          <a href="{{ button_url }}" style="background:#003366;color:#fff;padding:1.08em 2.5em;border-radius:11px;text-decoration:none;font-weight:700;font-size:1.13em;box-shadow:0 2px 8px #00336633;">{{ button_text }}</a>
+        </div>
+        {% endif %}
+        <div style="font-size:1em;margin-top:2em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <div style="background:#e3e6f2;color:#003366;text-align:center;font-size:1em;padding:1.15em 1em;border-radius:0 0 20px 20px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>

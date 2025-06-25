@@ -1,0 +1,37 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#fff;border-radius:14px;box-shadow:0 2px 24px #0001;overflow:hidden;font-family:Arial,sans-serif;">
+  <tr>
+    <td>
+      <tr>
+        <td style="background:linear-gradient(90deg,#e1306c,#fdc468 80%);padding:1.1em 2em 1.1em 2em;color:#fff;font-size:1.36em;font-weight:700;text-align:left;">
+          <img src="{{ logo_url or 'https://cdn-icons-png.flaticon.com/48/2111/2111463.png' }}" width="32" height="32" alt="Instagram" style="vertical-align:middle;border-radius:10px;margin-right:10px;">
+          {{ header_brand or 'Instagram' }}
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:2em 2em 1.2em 2em;color:#262626;background:#fff5f9;">
+          <div style="font-size:1.09em;font-weight:700;margin-bottom:1em;">
+            {{ subject }}
+          </div>
+          <div style="margin-bottom:1.6em;line-height:1.7;">
+            {{ greeting }}<br><br>
+            {{ body | safe }}
+          </div>
+          {% if button_text and button_url %}
+          <div style="text-align:center;margin-bottom:2em;">
+            <a href="{{ button_url }}" style="background:linear-gradient(90deg,#e1306c,#fdc468);color:#fff;padding:1em 2.8em;border-radius:9px;text-decoration:none;font-weight:700;font-size:1em;box-shadow:0 2px 8px #e1306c55;">{{ button_text }}</a>
+          </div>
+          {% endif %}
+          {% if secondary_text %}
+          <div style="font-size:0.93em;color:#886;">{{ secondary_text }}</div>
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td style="background:#fde3f2;color:#e1306c;text-align:center;font-size:0.97em;padding:1em 1em 0.6em 1em;border-radius:0 0 14px 14px;">
+          {{ footer_brand or 'Instagram, Meta Platforms' }}<br>
+          <span style="font-size:0.87em;opacity:0.55;">{{ disclaimer }}</span>
+        </td>
+      </tr>
+    </td>
+  </tr>
+</table>

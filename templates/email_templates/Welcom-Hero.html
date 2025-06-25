@@ -1,0 +1,50 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#fff;border-radius:20px;box-shadow:0 8px 32px #0002;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      {% if hero_url %}
+      <tr>
+        <td style="padding:0;">
+          <img src="{{ hero_url }}" alt="Hero Image" style="width:100%;height:220px;object-fit:cover;display:block;">
+        </td>
+      </tr>
+      {% endif %}
+      {% if logo_url %}
+      <tr>
+        <td style="text-align:center;padding-top:16px;">
+          <img src="{{ logo_url }}" alt="Logo" style="background:#fff;padding:1em 2em;border-radius:50px;box-shadow:0 4px 24px #0002;max-width:140px;max-height:65px;">
+        </td>
+      </tr>
+      {% endif %}
+      <tr>
+        <td style="background:linear-gradient(135deg,{{ header_color }},{{ accent_color }});color:{{ header_text_color }};padding:2.8em 2em 2.1em 2em;text-align:center;">
+          <div style="font-size:2.2em;font-weight:900;letter-spacing:0.01em;margin-bottom:0.6em;">
+            {{ subject }}
+          </div>
+          <div style="font-size:1.22em;margin-bottom:1.7em;line-height:1.6;">
+            {{ greeting }}<br>{{ body | replace('\n','<br>') }}
+          </div>
+          {% if button_text and button_url %}
+          <a href="{{ button_url }}" style="background:{{ button_color }};color:{{ button_text_color }};padding:1.2em 3em;border-radius:14px;text-decoration:none;font-weight:700;display:inline-block;font-size:1.2em;box-shadow:0 2px 8px #0002;transition:background .2s;">
+            {{ button_text }}
+          </a>
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td style="background:{{ body_color }};color:{{ text_color }};text-align:center;font-size:1.1em;padding:2em;">
+          <div style="margin-bottom:1.1em;">{{ closing }}<br>{{ signature }}</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="background:{{ footer_color }};color:{{ footer_text_color }};text-align:center;font-size:1em;padding:1.6em 1em;border-radius:0 0 20px 20px;">
+          <div style="margin-bottom:0.8em;">
+            <a href="https://twitter.com/" style="display:inline-block;margin:0 6px;"><img src="https://cdn-icons-png.flaticon.com/24/733/733579.png" style="vertical-align:middle;border-radius:4px;"></a>
+            <a href="https://facebook.com/" style="display:inline-block;margin:0 6px;"><img src="https://cdn-icons-png.flaticon.com/24/124/124010.png" style="vertical-align:middle;border-radius:4px;"></a>
+            <a href="https://linkedin.com/" style="display:inline-block;margin:0 6px;"><img src="https://cdn-icons-png.flaticon.com/24/145/145807.png" style="vertical-align:middle;border-radius:4px;"></a>
+          </div>
+          <div style="margin-top:0.8em;">{{ footer | replace('\n','<br>') }}</div>
+        </td>
+      </tr>
+    </td>
+  </tr>
+</table>

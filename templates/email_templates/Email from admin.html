@@ -1,0 +1,31 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:530px;background:#f9f9fb;border-radius:24px;box-shadow:0 4px 24px #21212128;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <div style="background:#fff;padding:2.2em 2em 1.2em 2em;text-align:left;border-bottom:1px solid #f4f4f4;">
+        <div style="display:flex;align-items:center;">
+          {% if logo_url %}
+          <img src="{{ logo_url }}" alt="Logo" style="max-width:36px;max-height:36px;border-radius:12px;margin-right:1.1em;">
+          {% endif %}
+          <span style="font-size:1.55em;font-weight:900;color:#212121;">Admin</span>
+          <span style="font-size:1.09em;font-weight:700;color:#757575;margin-left:0.5em;">(Internal Notice)</span>
+        </div>
+        <div style="font-size:1.13em;color:#333;margin-top:1.2em;">{{ subject }}</div>
+      </div>
+      <div style="background:#fff;color:#14213d;padding:2.3em 2em 1.7em 2em;">
+        <div style="font-size:1.13em;line-height:1.8;margin-bottom:2.3em;">
+          {{ greeting }}<br>
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="text-align:left;margin-bottom:2em;">
+          <a href="{{ button_url }}" style="background:#212121;color:#fff;padding:1em 2.5em;border-radius:11px;text-decoration:none;font-weight:700;font-size:1.09em;box-shadow:0 2px 8px #21212122;">{{ button_text }}</a>
+        </div>
+        {% endif %}
+        <div style="font-size:1.06em;margin-top:2em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <div style="background:#f4f4f4;color:#888;text-align:center;font-size:0.99em;padding:1.1em 1em;border-radius:0 0 24px 24px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>

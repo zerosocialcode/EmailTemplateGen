@@ -1,0 +1,41 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:22px;box-shadow:0 8px 36px #0002;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <!-- Header -->
+      <div style="background:linear-gradient(90deg,{{ header_color }},{{ accent_color }});padding:2.8em 2em 2em 2em;text-align:center;">
+        {% if logo_url %}
+          <img src="{{ logo_url }}" alt="Logo" style="max-width:110px;max-height:40px;margin-bottom:1em;">
+        {% endif %}
+        <div style="color:{{ header_text_color }};font-size:2.3em;font-weight:900;letter-spacing:0.02em;margin-bottom:0.3em;">
+          {{ subject }}
+        </div>
+        <div style="color:{{ header_text_color }};font-size:1.18em;opacity:0.8;">
+          {{ greeting }}
+        </div>
+      </div>
+      <!-- Main Content -->
+      <div style="background:{{ body_color }};color:{{ text_color }};padding:2.4em 2em 1.2em 2em;">
+        <div style="font-size:1.15em;line-height:1.7;margin-bottom:2.1em;">
+          {{ body | safe }}
+        </div>
+        {% if hero_url %}
+        <div style="text-align:center;margin:2em 0;">
+          <img src="{{ hero_url }}" alt="Weekly Highlight" style="width:100%;max-width:420px;border-radius:12px;">
+        </div>
+        {% endif %}
+        {% if button_text and button_url %}
+        <div style="text-align:center;margin:2.2em 0;">
+          <a href="{{ button_url }}" style="background:{{ button_color }};color:{{ button_text_color }};padding:1.2em 3em;border-radius:16px;text-decoration:none;font-weight:bold;font-size:1.18em;box-shadow:0 2px 8px #0002;">
+            {{ button_text }}
+          </a>
+        </div>
+        {% endif %}
+        <div style="margin-top:2.1em;font-size:1.07em;font-style:italic;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <!-- Footer -->
+      <div style="background:{{ footer_color }};color:{{ footer_text_color }};text-align:center;font-size:1em;padding:1.4em 1em;border-radius:0 0 22px 22px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>
