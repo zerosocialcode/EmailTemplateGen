@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <title>Generated Email Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { max-width: 760px; margin: 2em auto; font-family: Arial, sans-serif; background:#f3f3f8;}
+    .template-output { background: #fff; margin: 2em 0 1em 0; border-radius: 10px; box-shadow: 0 4px 24px #0001; padding: 1em; }
+    .button-group { display: flex; gap: 1em; margin-top: 1em; justify-content: center;}
+    textarea[readonly] { font-family: monospace; background: #f7f7fa; width:100%; font-size:1em; }
+    button { background: #2563eb; color: #fff; border: none; cursor: pointer; font-weight: bold; font-size: 1.1em; border-radius: 7px; padding: 0.85em 1.7em;}
+    button:hover { background: #1d4ed8; }
+    h3 { text-align: center;}
+    .live-preview {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      margin: 2em 0 1em 0;
+      background: #f7f7fa;
+      overflow: auto;
+      padding: 1.5em;
+    }
+    .section-label {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: .5em;
+      margin-top: 1.2em;
+      color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="template-output">
+    <h3>Generated HTML Template{% if template_name %} ({{ template_name.replace('_',' ').title() }}){% endif %}</h3>
+    
+    <div class="section-label">Live Preview:</div>
+    <div class="live-preview">
+      <!-- Render the HTML template as preview -->
+      {{ generated_html | safe }}
+    </div>
+    
+    <div class="section-label">HTML Code:</div>
+    <textarea id="generatedHtml" rows="14" readonly>{{ generated_html | e }}</textarea>
+    <div class="button-group">
+      <button type="button" onclick="copyHtml()">Copy HTML</button>
+      <button type="button" onclick="downloadHtml()">Download HTML</button>
+    </div>
+    <div style="text-align:center; margin-top:2em;">
+      <a href="{{ url_for('index') }}"><button type="button" style="background:#888;">&#8592; Back to Generator</button></a>
+    </div>
+  </div>
+  <script>
+    function copyHtml() {
+      const textarea = document.getElementById('generatedHtml');
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      alert('HTML copied to clipboard!');
+    }
+    function downloadHtml() {
+      const text = document.getElementById('generatedHtml').value;
+      const blob = new Blob([text], { type: 'text/html' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'email_template.html';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>

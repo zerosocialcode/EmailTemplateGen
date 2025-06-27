@@ -12,7 +12,10 @@
     label { font-weight: bold; margin-top: 1em; display: block; }
     .row {display:flex;gap:1em;}
     .row>div {flex:1;}
+    .button-group { display: flex; gap: 1em; margin-top: 1em;}
+    .template-output { background: #fff; margin: 2em 0 1em 0; border-radius: 10px; box-shadow: 0 4px 24px #0001; padding: 1em; }
     @media (max-width:500px) {body {margin:0;} form {padding:1em;}}
+    textarea[readonly] { font-family: monospace; background: #f7f7fa; }
   </style>
 </head>
 <body>
@@ -100,5 +103,35 @@
     </select>
     <button type="submit">Generate Email Template</button>
   </form>
+
+  {% if generated_html is defined %}
+    <div class="template-output">
+      <h3 style="margin-top:0;">Generated HTML Template{% if template_name %} ({{ template_name.replace('_',' ').title() }}){% endif %}</h3>
+      <textarea id="generatedHtml" rows="14" readonly style="width:100%;font-size:1em;">{{ generated_html | e }}</textarea>
+      <div class="button-group">
+        <button type="button" onclick="copyHtml()">Copy HTML</button>
+        <button type="button" onclick="downloadHtml()">Download HTML</button>
+      </div>
+      <script>
+        function copyHtml() {
+          const textarea = document.getElementById('generatedHtml');
+          textarea.select();
+          textarea.setSelectionRange(0, 99999);
+          document.execCommand('copy');
+          alert('HTML copied to clipboard!');
+        }
+        function downloadHtml() {
+          const text = document.getElementById('generatedHtml').value;
+          const blob = new Blob([text], { type: 'text/html' });
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'email_template.html';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      </script>
+    </div>
+  {% endif %}
 </body>
 </html>
