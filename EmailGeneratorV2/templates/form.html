@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+  <title>Premium Email Template Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { max-width: 700px; margin: 2em auto; font-family: Arial, sans-serif; background:#f3f3f8;}
+    form { background: #fff; padding: 2em; border-radius: 16px; box-shadow: 0 4px 24px #0001; }
+    input, textarea, select, button { width: 100%; margin: 0.7em 0; padding: 0.85em; font-size: 1.1em; border-radius: 7px; border: 1px solid #d1d5db; }
+    button { background: #2563eb; color: #fff; border: none; cursor: pointer; font-weight: bold; font-size: 1.1em; }
+    button:hover { background: #1d4ed8; }
+    label { font-weight: bold; margin-top: 1em; display: block; }
+    .row {display:flex;gap:1em;}
+    .row>div {flex:1;}
+    .button-group { display: flex; gap: 1em; margin-top: 1em;}
+    .template-output { background: #fff; margin: 2em 0 1em 0; border-radius: 10px; box-shadow: 0 4px 24px #0001; padding: 1em; }
+    @media (max-width:500px) {body {margin:0;} form {padding:1em;}}
+    textarea[readonly] { font-family: monospace; background: #f7f7fa; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;font-size:2em;margin-bottom:0.25em;">Multi-Style Email Template Generator</h2>
+  <form method="post">
+    <label>Template:</label>
+    <select name="template_style">
+      {% for t in templates %}
+        <option value="{{ t }}">{{ t.replace('_',' ').title() }}</option>
+      {% endfor %}
+    </select>
+    <label>Subject:</label>
+    <input name="subject" required>
+    <label>Greeting:</label>
+    <input name="greeting" value="Hello," required>
+    <label>Message:</label>
+    <textarea name="body" rows="5" required></textarea>
+    <label>Button Text (optional):</label>
+    <input name="button_text" placeholder="e.g. View Details">
+    <label>Button Link URL (optional):</label>
+    <input name="button_url" placeholder="https://your-link.com">
+    <label>Logo Image URL (at top):</label>
+    <input type="url" name="logo_url" placeholder="https://yourdomain.com/logo.png">
+    <label>Hero Image URL (optional):</label>
+    <input type="url" name="hero_url" placeholder="https://yourdomain.com/hero.png">
+    <label>Accent Color (secondary/gradient):</label>
+    <input type="color" name="accent_color" value="#f59e42">
+    <label>Closing:</label>
+    <input name="closing" value="Best regards," required>
+    <label>Signature:</label>
+    <input name="signature" required>
+    <label>Footer Details (company, address, contact, etc):</label>
+    <textarea name="footer" rows="2" placeholder="Acme Corp, 123 Main St, support@acme.com" required></textarea>
+    <div class="row">
+      <div>
+        <label>Header Color:</label>
+        <input type="color" name="header_color" value="#2563eb">
+      </div>
+      <div>
+        <label>Body Color:</label>
+        <input type="color" name="body_color" value="#ffffff">
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Footer Color:</label>
+        <input type="color" name="footer_color" value="#f0f2f5">
+      </div>
+      <div>
+        <label>Button Color:</label>
+        <input type="color" name="button_color" value="#1877f2">
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Header Text Color:</label>
+        <input type="color" name="header_text_color" value="#ffffff">
+      </div>
+      <div>
+        <label>Footer Text Color:</label>
+        <input type="color" name="footer_text_color" value="#65676b">
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Button Text Color:</label>
+        <input type="color" name="button_text_color" value="#ffffff">
+      </div>
+      <div>
+        <label>General Text Color:</label>
+        <input type="color" name="text_color" value="#262626">
+      </div>
+    </div>
+    <label>Font:</label>
+    <select name="font">
+      <option value="Arial, sans-serif">Arial</option>
+      <option value="'Roboto', Arial, sans-serif">Roboto</option>
+      <option value="'Segoe UI', Arial, sans-serif">Segoe UI</option>
+      <option value="'Georgia', serif">Georgia</option>
+      <option value="'Courier New', Courier, monospace">Courier New</option>
+      <option value="'Times New Roman', Times, serif">Times New Roman</option>
+      <option value="'Montserrat', Arial, sans-serif">Montserrat</option>
+      <option value="'Lato', Arial, sans-serif">Lato</option>
+      <option value="'Open Sans', Arial, sans-serif">Open Sans</option>
+    </select>
+    <button type="submit">Generate Email Template</button>
+  </form>
+
+  {% if generated_html is defined %}
+    <div class="template-output">
+      <h3 style="margin-top:0;">Generated HTML Template{% if template_name %} ({{ template_name.replace('_',' ').title() }}){% endif %}</h3>
+      <textarea id="generatedHtml" rows="14" readonly style="width:100%;font-size:1em;">{{ generated_html | e }}</textarea>
+      <div class="button-group">
+        <button type="button" onclick="copyHtml()">Copy HTML</button>
+        <button type="button" onclick="downloadHtml()">Download HTML</button>
+      </div>
+      <script>
+        function copyHtml() {
+          const textarea = document.getElementById('generatedHtml');
+          textarea.select();
+          textarea.setSelectionRange(0, 99999);
+          document.execCommand('copy');
+          alert('HTML copied to clipboard!');
+        }
+        function downloadHtml() {
+          const text = document.getElementById('generatedHtml').value;
+          const blob = new Blob([text], { type: 'text/html' });
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'email_template.html';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      </script>
+    </div>
+  {% endif %}
+</body>
+</html>

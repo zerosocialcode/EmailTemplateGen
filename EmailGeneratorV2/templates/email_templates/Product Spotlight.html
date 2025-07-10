@@ -1,0 +1,35 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#fff;border-radius:20px;box-shadow:0 8px 32px #0002;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <!-- Header -->
+      <div style="background:linear-gradient(120deg,{{ header_color }},{{ accent_color }});color:{{ header_text_color }};padding:2.5em 2em 1.6em 2em;text-align:center;">
+        {% if logo_url %}
+          <img src="{{ logo_url }}" alt="Logo" style="max-width:110px;max-height:44px;margin-bottom:1.2em;">
+        {% endif %}
+        <div style="font-size:2em;font-weight:900;letter-spacing:0.01em;">{{ subject }}</div>
+        <div style="font-size:1.13em;opacity:0.85;margin-top:0.5em;">{{ greeting }}</div>
+      </div>
+      <!-- Product Card -->
+      <div style="background:{{ body_color }};color:{{ text_color }};padding:2.2em 2em 1.5em 2em;text-align:center;">
+        {% if hero_url %}
+          <img src="{{ hero_url }}" alt="Product Image" style="width:90%;max-width:320px;border-radius:16px;box-shadow:0 2px 14px #0001;margin-bottom:2em;">
+        {% endif %}
+        <div style="font-size:1.18em;line-height:1.75;margin-bottom:2.3em;">
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="margin:2em 0;">
+          <a href="{{ button_url }}" style="background:{{ button_color }};color:{{ button_text_color }};padding:1.1em 2.8em;border-radius:14px;text-decoration:none;font-weight:700;font-size:1.18em;box-shadow:0 2px 8px #0002;">
+            {{ button_text }}
+          </a>
+        </div>
+        {% endif %}
+        <div style="margin-top:2.1em;font-size:1.07em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <!-- Footer -->
+      <div style="background:{{ footer_color }};color:{{ footer_text_color }};text-align:center;font-size:1em;padding:1.2em 1em;border-radius:0 0 20px 20px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>

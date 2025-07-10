@@ -1,0 +1,31 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#fff;border-radius:26px;box-shadow:0 6px 38px #b71c1c22;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <div style="background:#fff4f4;padding:2.2em 2em 1.5em 2em;text-align:left;border-bottom:1px solid #ffcdd2;">
+        <div style="display:flex;align-items:center;">
+          {% if logo_url %}
+          <img src="{{ logo_url }}" alt="Logo" style="max-width:42px;max-height:42px;border-radius:14px;margin-right:1.1em;">
+          {% endif %}
+          <span style="font-size:2em;font-weight:900;color:#b71c1c;">&#9940;</span>
+          <span style="font-size:1.2em;font-weight:700;color:#b71c1c;margin-left:0.6em;">Account Suspension Notice</span>
+        </div>
+        <div style="font-size:1.1em;color:#333;margin-top:1.2em;">{{ subject }}</div>
+      </div>
+      <div style="background:#fff;color:#222;padding:2.7em 2.1em 1.4em 2.1em;">
+        <div style="font-size:1.13em;line-height:1.75;margin-bottom:2.1em;">
+          {{ greeting }}<br>
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="text-align:left;margin-bottom:2em;">
+          <a href="{{ button_url }}" style="background:#b71c1c;color:#fff;padding:1em 2.5em;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.09em;box-shadow:0 2px 8px #b71c1c22;">{{ button_text }}</a>
+        </div>
+        {% endif %}
+        <div style="font-size:1em;margin-top:2em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <div style="background:#fff4f4;color:#b71c1c;text-align:center;font-size:0.99em;padding:1.1em 1em;border-radius:0 0 26px 26px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>

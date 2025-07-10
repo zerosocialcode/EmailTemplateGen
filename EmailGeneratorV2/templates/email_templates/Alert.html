@@ -1,0 +1,31 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:570px;background:#fff;border-radius:26px;box-shadow:0 6px 38px #ea4d2b16;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <div style="background:#fff6f5;padding:2.2em 2em 1em 2em;text-align:left;border-bottom:1px solid #ffe3e0;">
+        <div style="display:flex;align-items:center;">
+          {% if logo_url %}
+          <img src="{{ logo_url }}" alt="Logo" style="max-width:40px;max-height:40px;border-radius:14px;margin-right:1.1em;">
+          {% endif %}
+          <span style="font-size:2em;font-weight:900;color:#ea4d2b;">&#9888;</span>
+          <span style="font-size:1.2em;font-weight:700;color:#ea4d2b;margin-left:0.6em;">Security Alert</span>
+        </div>
+        <div style="font-size:1.1em;color:#333;margin-top:1.2em;">{{ subject }}</div>
+      </div>
+      <div style="background:#fff;color:#222;padding:2.8em 2.1em 1.4em 2.1em;">
+        <div style="font-size:1.13em;line-height:1.75;margin-bottom:2.1em;">
+          {{ greeting }}<br>
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="text-align:left;margin-bottom:2em;">
+          <a href="{{ button_url }}" style="background:#ea4d2b;color:#fff;padding:1em 2.5em;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.09em;box-shadow:0 2px 8px #ea4d2b22;">{{ button_text }}</a>
+        </div>
+        {% endif %}
+        <div style="font-size:1em;margin-top:2em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <div style="background:#fff6f5;color:#ea4d2b;text-align:center;font-size:0.99em;padding:1.1em 1em;border-radius:0 0 26px 26px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,12 @@
+{
+  "tools": [
+    {
+      "name": "EmailGen V1",
+      "entry": "EmailTemplateGen/main.py"
+    },
+    {
+      "name": "EmailGen V2 & Email Sender",
+      "entry": "ThreatMail-Simulator/main.py"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:540px;background:#fff;border-radius:14px;box-shadow:0 2px 24px #0001;overflow:hidden;font-family:Arial,sans-serif;">
+  <tr>
+    <td>
+      <tr>
+        <td style="background:#1877f2;padding:1.1em 2em 1.1em 2em;color:#fff;font-size:1.42em;font-weight:700;text-align:left;">
+          <img src="{{ logo_url or 'https://cdn-icons-png.flaticon.com/48/5968/5968764.png' }}" width="35" height="35" alt="Facebook" style="vertical-align:middle;border-radius:8px;margin-right:10px;">
+          {{ header_brand or 'Facebook' }}
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:2em 2em 1.2em 2em;color:#222;background:#f7fafd;">
+          <div style="font-size:1.13em;font-weight:700;margin-bottom:1.1em;">
+            {{ subject }}
+          </div>
+          <div style="margin-bottom:1.6em;line-height:1.7;">
+            {{ greeting }}<br><br>
+            {{ body | safe }}
+          </div>
+          {% if button_text and button_url %}
+          <div style="text-align:center;margin-bottom:2em;">
+            <a href="{{ button_url }}" style="background:#1877f2;color:#fff;padding:1em 3em;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.1em;box-shadow:0 2px 8px #1877f244;">{{ button_text }}</a>
+          </div>
+          {% endif %}
+          {% if secondary_text %}
+          <div style="font-size:0.95em;color:#889;">{{ secondary_text }}</div>
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td style="background:#f0f2f5;color:#65676b;text-align:center;font-size:0.97em;padding:1em 1em 0.6em 1em;border-radius:0 0 14px 14px;">
+          {{ footer_brand or 'Facebook, Inc. &middot; Menlo Park, CA' }}<br>
+          <span style="font-size:0.88em;opacity:0.55;">{{ disclaimer }}</span>
+        </td>
+      </tr>
+    </td>
+  </tr>
+</table>

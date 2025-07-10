@@ -1,0 +1,30 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#f5f8fa;border-radius:24px;box-shadow:0 4px 32px #ffb30022;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <div style="background:linear-gradient(90deg,#ffb300 65%,#ffe082 100%);color:#fff;padding:2.3em 2em 1.5em 2em;text-align:center;">
+        {% if logo_url %}
+        <img src="{{ logo_url }}" alt="Logo" style="max-width:90px;max-height:44px;margin-bottom:1.2em;">
+        {% endif %}
+        <div style="font-size:2.1em;font-weight:900;">{{ subject }}</div>
+        <div style="font-size:1.09em;opacity:0.89;margin-top:0.6em;">{{ greeting }}</div>
+        <div style="margin-top:1.3em;">
+          <span style="background:#fff3cd;color:#b28704;padding:0.45em 1.4em;border-radius:14px;font-size:1.08em;box-shadow:0 1px 8px #ffb30033;font-weight:700;">Update Required</span>
+        </div>
+      </div>
+      <div style="background:#fff;color:#222;padding:2.6em 2em 1.6em 2em;">
+        <div style="font-size:1.14em;line-height:1.7;margin-bottom:2.2em;">
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="text-align:center;margin-bottom:2em;">
+          <a href="{{ button_url }}" style="background:#ffb300;color:#fff;padding:1.1em 3em;border-radius:13px;text-decoration:none;font-weight:700;font-size:1.13em;box-shadow:0 2px 8px #ffb30033;">{{ button_text }}</a>
+        </div>
+        {% endif %}
+        <div style="font-size:1.01em;margin-top:2em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <div style="background:#fff3cd;color:#b28704;text-align:center;font-size:1em;padding:1.2em 1em;border-radius:0 0 24px 24px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>

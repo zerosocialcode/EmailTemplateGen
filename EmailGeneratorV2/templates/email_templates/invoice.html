@@ -1,0 +1,30 @@
+<table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#fff;border-radius:28px;box-shadow:0 4px 32px #5e35b122;overflow:hidden;font-family:{{ font }};">
+  <tr>
+    <td>
+      <div style="background:linear-gradient(90deg,#5e35b1 65%,#b39ddb 100%);color:#fff;padding:2.7em 2em 1.3em 2em;text-align:center;">
+        {% if logo_url %}
+        <img src="{{ logo_url }}" alt="Logo" style="max-width:100px;max-height:44px;margin-bottom:1.2em;">
+        {% endif %}
+        <div style="font-size:2.1em;font-weight:900;">{{ subject }}</div>
+        <div style="font-size:1.13em;opacity:0.87;margin-top:0.47em;">{{ greeting }}</div>
+        <div style="margin-top:1.2em;">
+          <span style="background:#fff3cd;color:#5e35b1;padding:0.45em 1.4em;border-radius:14px;font-size:1.08em;box-shadow:0 1px 8px #b39ddb33;font-weight:700;">Invoice Attached</span>
+        </div>
+      </div>
+      <div style="background:#fff;color:#222;padding:2.7em 2em 1.7em 2em;">
+        <div style="font-size:1.13em;line-height:1.8;margin-bottom:2.3em;">
+          {{ body | safe }}
+        </div>
+        {% if button_text and button_url %}
+        <div style="text-align:center;margin-bottom:2.3em;">
+          <a href="{{ button_url }}" style="background:#5e35b1;color:#fff;font-weight:800;padding:1.1em 3.2em;border-radius:15px;text-decoration:none;font-size:1.18em;box-shadow:0 2px 8px #5e35b144;">{{ button_text }}</a>
+        </div>
+        {% endif %}
+        <div style="font-size:1.06em;margin-top:2em;">{{ closing }}<br>{{ signature }}</div>
+      </div>
+      <div style="background:#ede7f6;color:#5e35b1;text-align:center;font-size:1em;padding:1.2em 1em;border-radius:0 0 28px 28px;">
+        {{ footer | safe }}
+      </div>
+    </td>
+  </tr>
+</table>
