@@ -163,9 +163,99 @@ Contributions, feature requests, and feedback are welcome! Please open an issue 
 
 ---
 
-## Maintainer
+## TemplateFusion Main Controller
 
-- [zerosocialcode](https://github.com/zerosocialcode)
+The `main.py` script serves as the unified launcher and module manager for the TemplateFusion toolkit. It provides an interactive, terminal-based menu to discover, select, and run the various tools (such as email template generators and the MailBird email sender) included in the TemplateFusion suite.
+
+### What is This Script?
+
+The TemplateFusion main controller is designed to:
+
+- **Scan** the project directory for available tool modules (e.g., EmailGeneratorV1, EmailGeneratorV2, MailBird).
+- **Display** a visually appealing, colored menu with project branding and tool listings.
+- **Allow users** to select which tool to run via a simple numbered prompt.
+- **Launch** the selected tool in a subprocess, isolating its execution from the main menu.
+- **Provide a smooth user experience** with screen clearing, banners, and graceful exits.
+
+### How Does It Work?
+
+1. **Startup & Scanning:**  
+   When run, the script looks for subdirectories containing a `main.py` or `__main__.py` file, identifying them as modules/tools.
+
+2. **Banner & Branding:**  
+   The script loads a custom banner from `.banner.txt` if available, and displays project/developer info from `.dev.json` (or defaults).
+
+3. **Interactive Menu:**  
+   All detected tools are listed with numbers. The user selects a tool to run by entering its corresponding number.
+
+4. **Module Execution:**  
+   The chosen tool is launched in its own process, with its working directory set appropriately. After the tool exits, the user can return to the menu.
+
+5. **Graceful Exit:**  
+   Exiting the menu or pressing Ctrl+C will clear the screen and display a goodbye message.
+
+### Usage Instructions
+
+#### 1. Requirements
+
+- Python 3.7 or higher
+- `termcolor` package  
+  Install with:  
+  ```bash
+  pip install termcolor
+  ```
+
+#### 2. Directory Structure Example
+
+```
+TemplateFusion/
+├── main.py               # (this controller)
+├── .banner.txt           # (optional, for custom banner)
+├── .dev.json             # (optional, for config: tool_name, developer)
+├── EmailGeneratorV1/
+│   └── main.py
+├── EmailGeneratorV2/
+│   └── main.py
+└── MailBird/
+    └── main.py
+```
+
+#### 3. Running the Controller
+
+From the TemplateFusion project root, simply run:
+
+```bash
+python main.py
+```
+
+- The script will present a menu listing all available tool modules.
+- Enter the number of the tool you want to run.
+- When finished with a tool, press Enter to return to the menu and select another, or press Ctrl+C to exit.
+
+### Customization & Open-Source Freedom
+
+TemplateFusion is **fully open-source**. You are free to:
+
+- **Change the project name, developer name, branding, and all configuration** for your own personal, organizational, or commercial use.
+- Edit `.dev.json` to set your own `tool_name` and `developer`—these will be displayed in the menu and banner.
+- Replace `.banner.txt` with your own ASCII art or branding.
+- Add, remove, or rename modules and tools according to your needs.
+
+There are **no restrictions**—you can adapt and redistribute this controller as you wish. This flexibility is provided to empower anyone to make TemplateFusion their own.
+
+### For Personal Use
+
+- **Single Entry Point:**  
+  Use this script as your main access point for all TemplateFusion modules.
+- **Easily Add/Remove Tools:**  
+  Just add new subdirectories with a `main.py` file to expand your toolkit; the controller will auto-detect them.
+- **Consistent Experience:**  
+  Benefit from a unified, branded, and user-friendly interface every time you use or share TemplateFusion.
+
+### Notes
+
+- Tools are run in new processes; any errors or keyboard interrupts are handled gracefully.
+- The controller handles Windows and Unix systems for screen clearing and sizing.
 
 ---
 
