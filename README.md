@@ -37,38 +37,41 @@ TemplateFusion is a professional, modular platform for streamlined creation, man
 ## Directory Structure
 
 ```
-TemplateFusion/
-├── EmailGeneratorV1/
-│   └── main.py
-├── EmailGeneratorV2/
-│   ├── main.py
-│   └── templates/
-│       ├── email_templates/
-│       │   ├── Account Suspension.html
-│       │   ├── Alert.html
-│       │   ├── Email from admin.html
-│       │   ├── Facebook DM.html
-│       │   ├── Facebook Notice.html
-│       │   ├── Instagram Warning.html
-│       │   ├── Limited Time Offer.html
-│       │   ├── Login Expired.html
-│       │   ├── New Feature Update.html
-│       │   ├── Password Reset Request.html
-│       │   ├── Product Spotlight.html
-│       │   ├── Security Alert.html
-│       │   ├── Support Ticket.html
-│       │   ├── Term Change Notification.html
-│       │   ├── Update Required.html
-│       │   ├── Verify Now.html
-│       │   ├── Weekly Digest.html
-│       │   ├── Welcom-Hero.html
-│       │   └── invoice.html
-│       ├── form.html
-│       └── result.html
-├── MailBird/
-│   ├── mails/
-│   │   └── example.html
-│   └── main.py
+TemplateFusion
+├── EmailGeneratorV1
+│   └── main.py
+├── EmailGeneratorV2
+│   ├── main.py
+│   └── templates
+│       ├── email_templates
+│       │   ├── Account Suspension.html
+│       │   ├── Alert.html
+│       │   ├── Email from admin.html
+│       │   ├── Facebook DM.html
+│       │   ├── Facebook Notice.html
+│       │   ├── Instagram Warning.html
+│       │   ├── Limited Time Offer.html
+│       │   ├── Login Expired.html
+│       │   ├── New Feature Update.html
+│       │   ├── Password Reset Request.html
+│       │   ├── Product Spotlight.html
+│       │   ├── Security Alert.html
+│       │   ├── Support Ticket.html
+│       │   ├── Term Change Notification.html
+│       │   ├── Update Required.html
+│       │   ├── Verify Now.html
+│       │   ├── Weekly Digest.html
+│       │   ├── Welcom-Hero.html
+│       │   ├── a.txt
+│       │   └── invoice.html
+│       ├── form.html
+│       └── result.html
+├── MailBird
+│   ├── mails
+│   │   ├── a.txt
+│   │   └── example.html
+│   └── main.py
+├── README.md
 └── main.py
 ```
 
