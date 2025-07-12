@@ -6,12 +6,6 @@ TemplateFusion is a professional, modular platform for streamlined creation, man
 
 ---
 
-## Preview
-
-![TemplateFusion Preview](https://raw.githubusercontent.com/zerosocialcode/TemplateFusion/refs/heads/main/.preview.png)
-
----
-
 ## Features
 
 - **Modular Architecture:**  
