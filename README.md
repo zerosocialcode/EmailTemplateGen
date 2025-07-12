@@ -34,45 +34,54 @@ TemplateFusion is a professional, modular platform for streamlined creation, man
 
 ---
 
-## Directory Structure
 
-```
-TemplateFusion
-├── EmailGeneratorV1
-│   └── main.py
-├── EmailGeneratorV2
-│   ├── main.py
-│   └── templates
-│       ├── email_templates
-│       │   ├── Account Suspension.html
-│       │   ├── Alert.html
-│       │   ├── Email from admin.html
-│       │   ├── Facebook DM.html
-│       │   ├── Facebook Notice.html
-│       │   ├── Instagram Warning.html
-│       │   ├── Limited Time Offer.html
-│       │   ├── Login Expired.html
-│       │   ├── New Feature Update.html
-│       │   ├── Password Reset Request.html
-│       │   ├── Product Spotlight.html
-│       │   ├── Security Alert.html
-│       │   ├── Support Ticket.html
-│       │   ├── Term Change Notification.html
-│       │   ├── Update Required.html
-│       │   ├── Verify Now.html
-│       │   ├── Weekly Digest.html
-│       │   ├── Welcom-Hero.html
-│       │   ├── a.txt
-│       │   └── invoice.html
-│       ├── form.html
-│       └── result.html
-├── MailBird
-│   ├── mails
-│   │   ├── a.txt
-│   │   └── example.html
-│   └── main.py
-├── README.md
-└── main.py
+```mermaid
+flowchart LR
+    TF[TemplateFusion]
+    EG1[EmailGeneratorV1]
+    EG2[EmailGeneratorV2]
+    MB[MailBird]
+    MAIN[main.py]
+
+    TF --> EG1
+    TF --> EG2
+    TF --> MB
+    TF --> MAIN
+
+    EG1 --> EG1MAIN[main.py]
+
+    EG2 --> EG2MAIN[main.py]
+    EG2 --> TMPL[templates]
+
+    TMPL --> EMT[email_templates]
+    TMPL --> FORM[form.html]
+    TMPL --> RESULT[result.html]
+
+    EMT --> AS[Account Suspension.html]
+    EMT --> ALERT[Alert.html]
+    EMT --> ADMIN[Email from admin.html]
+    EMT --> FBDM[Facebook DM.html]
+    EMT --> FBNTC[Facebook Notice.html]
+    EMT --> IGW[Instagram Warning.html]
+    EMT --> LTO[Limited Time Offer.html]
+    EMT --> LOGIN[Login Expired.html]
+    EMT --> NFU[New Feature Update.html]
+    EMT --> PRR[Password Reset Request.html]
+    EMT --> PS[Product Spotlight.html]
+    EMT --> SA[Security Alert.html]
+    EMT --> ST[Support Ticket.html]
+    EMT --> TCN[Term Change Notification.html]
+    EMT --> UR[Update Required.html]
+    EMT --> VN[Verify Now.html]
+    EMT --> WD[Weekly Digest.html]
+    EMT --> WH[Welcom-Hero.html]
+    EMT --> ATXT[a.txt]
+    EMT --> INV[invoice.html]
+
+    MB --> MBMAILS[mails]
+    MB --> MBMAIN[main.py]
+    MBMAILS --> MBATXT[a.txt]
+    MBMAILS --> MBEX[example.html]
 ```
 
 ---
