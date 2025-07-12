@@ -216,22 +216,6 @@ The TemplateFusion main controller is designed to:
   ```bash
   pip install termcolor
   ```
-
-#### 2. Directory Structure Example
-
-```
-TemplateFusion/
-├── main.py               # (this controller)
-├── .banner.txt           # (optional, for custom banner)
-├── .dev.json             # (optional, for config: tool_name, developer)
-├── EmailGeneratorV1/
-│   └── main.py
-├── EmailGeneratorV2/
-│   └── main.py
-└── MailBird/
-    └── main.py
-```
-
 #### 3. Running the Controller
 
 From the TemplateFusion project root, simply run:
