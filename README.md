@@ -248,8 +248,15 @@ There are **no restrictions**—you can adapt and redistribute this controller a
 - The controller handles Windows and Unix systems for screen clearing and sizing.
 
 ---
+---
+<p align="center">
+  <a href="https://t.me/zerosocialcode" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" height="90"/>
+  </a>
+</p>
+---
 
 ## License
 
 [MIT License](LICENSE)  
-© 2025 [zerosocialcode](https://github.com/zerosocialcode)
+© 2025 zerosocialcode
